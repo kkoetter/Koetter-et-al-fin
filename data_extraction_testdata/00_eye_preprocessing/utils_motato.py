@@ -17,6 +17,9 @@ from scipy.interpolate import interp1d
 # Image
 import cv2 
 
+def nanzscore(array, axis=0):
+    return (array - np.nanmean(array, axis=axis))/np.nanstd(array, axis=axis)
+
 
 def compute_angle_between_vect_tail(v1, v2):
     dot = np.einsum('ijk,ijk->ij',[v1,v1,v2],[v2,v1,v2])
@@ -223,71 +226,3 @@ def reconstruct(df_orig, px_mm=150, wnd=50, thres =0.028):
     return df, rec_x, rec_y
 
 
-
-
-#Color palette for roi anatomy in RGB
-cluster_colors = [[79,153,174],
-[223,82,58],
-[132,103,230],
-[93,166,53],
-[212,72,205],
-[73,162,106],
-[222,77,126],
-[149,146,58],
-[185,110,189],
-[204,128,49],
-[108,137,208],
-[170,130,97],
-[145,133,161],
-[108,147,122],
-[193,116,131],
-[79,153,174],
-[223,82,58],
-[132,103,230],
-[93,166,53],
-[212,72,205],
-[73,162,106],
-[222,77,126],
-[149,146,58],
-[185,110,189],
-[204,128,49],
-[108,137,208],
-[170,130,97],
-[145,133,161],
-[108,147,122],
-[193,116,131]]
-
-# #Same Color palette for traces plot in HEX
-clust_colors =["#4f99ae",
-"#df523a",
-"#8467e6",
-"#5da635",
-"#d448cd",
-"#49a26a",
-"#de4d7e",
-"#95923a",
-"#b96ebd",
-"#cc8031",
-"#6c89d0",
-"#aa8261",
-"#9185a1",
-"#6c937a",
-"#c17483",
-"#4f99ae",
-"#df523a",
-"#8467e6",
-"#5da635",
-"#d448cd",
-"#49a26a",
-"#de4d7e",
-"#95923a",
-"#b96ebd",
-"#cc8031",
-"#6c89d0",
-"#aa8261",
-"#9185a1",
-"#6c937a",
-"#c17483"]
-
-
-cluster_colors = np.asarray(cluster_colors).astype(np.uint8)
