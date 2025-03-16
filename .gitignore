@@ -1,0 +1,5 @@
+﻿data_extraction_testdata/__pycache__
+data_extraction_testdata/05_dataset_pooling_and_generation/.ipynb_checkpoints
+*.pyc
+*checkpoint.ipynb
+*checkpoint.py

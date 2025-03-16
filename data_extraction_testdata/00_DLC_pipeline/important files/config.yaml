@@ -1,0 +1,179 @@
+    # Project definitions (do not edit)
+Task: dlc_2
+scorer: kata
+date: Dec12
+multianimalproject: false
+identity:
+
+    # Project path (change when moving around)
+project_path: /content/drive/My Drive/dlc_2-kata-2022-12-12
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\145628_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\120402_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\121523_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\122553_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\141621_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\142529_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\142800_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\143812_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\144849_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\145052_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\150645_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\111026_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\110006_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\114815_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\112750_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\132502_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\140544_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\133605_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\135832_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\134607_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\105318_video.mp4:
+    crop: 0, 1280, 0, 1024
+  C:\Users\admin\DeepLabCut\conda-environments\dlc_2-kata-2022-12-12\videos\104838_video.mp4:
+    crop: 0, 1280, 0, 1024
+bodyparts:
+- left_eye_anterior
+- left_eye_posterior
+- right_eye_anterior
+- right_eye_posterior
+- body
+- left_fin_base
+- left_fin_tip
+- right_fin_base
+- right_fin_tip
+- tail_0
+- tail_1
+- tail_2
+- tail_3
+- tail_4
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+start: 0
+stop: 1
+numframes2pick: 100
+
+    # Plotting configuration
+skeleton:
+- - left_eye_anterior
+  - left_eye_posterior
+- - left_eye_anterior
+  - right_eye_anterior
+- - left_eye_anterior
+  - right_eye_posterior
+- - left_eye_anterior
+  - tail_0
+- - left_eye_anterior
+  - tail_1
+- - left_eye_anterior
+  - tail_2
+- - left_eye_anterior
+  - tail_3
+- - left_eye_anterior
+  - tail_4
+- - right_eye_anterior
+  - left_eye_posterior
+- - right_eye_anterior
+  - right_eye_posterior
+- - right_eye_anterior
+  - tail_0
+- - right_eye_anterior
+  - tail_1
+- - right_eye_anterior
+  - tail_2
+- - right_eye_anterior
+  - tail_3
+- - right_eye_anterior
+  - tail_4
+- - right_eye_posterior
+  - left_eye_posterior
+- - right_eye_posterior
+  - tail_0
+- - right_eye_posterior
+  - tail_1
+- - right_eye_posterior
+  - tail_2
+- - right_eye_posterior
+  - tail_3
+- - right_eye_posterior
+  - tail_4
+- - left_eye_posterior
+  - tail_0
+- - left_eye_posterior
+  - tail_1
+- - left_eye_posterior
+  - tail_2
+- - left_eye_posterior
+  - tail_3
+- - left_eye_posterior
+  - tail_4
+- - tail_0
+  - tail_1
+- - tail_0
+  - tail_2
+- - tail_0
+  - tail_3
+- - tail_0
+  - tail_4
+- - tail_1
+  - tail_2
+- - tail_1
+  - tail_3
+- - tail_1
+  - tail_4
+- - tail_2
+  - tail_3
+- - tail_2
+  - tail_3
+- - tail_3
+  - tail_4
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 12
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
