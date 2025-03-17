@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from skimage.filters import threshold_otsu
 from scipy.signal import savgol_filter
-
+from scipy.stats import pearsonr
 from skimage.filters import threshold_otsu
 
 
@@ -163,6 +163,7 @@ def compute_leading_fin(l_peaks_array, r_peaks_array):
             result[i] = 2
     
     return result
+
 
 
 def extract_durations(r_peaks_i_array, r_valleys_i_array, r_peaks_a_array, r_valleys_a_array, thr=0.2, thr_last=0.1):
@@ -375,11 +376,12 @@ def compute_tbf(traces, extract_extrema, moving_average, dt=1.0, threshold=0.2, 
         tbf_output_list.append(tbf_output)
 
     return np.stack(tbf_output_list)
-
+    
 def resort_ipsi_contra(tail, left_fin, right_fin, directionality):
     """
     Resorts left_fin, right_fin, left_eye, and right_eye based on directionality
     into ipsilateral and contralateral components.
+    left =0, right =1, left fin angles = positive, right fin angles= negative.
     """
     tail_new = np.zeros_like(tail)
     ipsi_fin = np.zeros_like(left_fin)
@@ -387,12 +389,12 @@ def resort_ipsi_contra(tail, left_fin, right_fin, directionality):
     ipsi_fin_id = np.zeros(len(left_fin))  # Initialize with 0 (for 'left')
 
     for i, dir_value in enumerate(directionality):
-        if dir_value == 1:  # Left direction
+        if dir_value == 0:  # Left direction
             tail_new[i] = tail[i]
             ipsi_fin[i] = left_fin[i]
             contra_fin[i] = right_fin[i]
             ipsi_fin_id[i] = 0  # Set as 0 (for 'left')
-        elif dir_value == 0:  # Right direction
+        elif dir_value == 1:  # Right direction
             tail_new[i] = tail[i]
             ipsi_fin[i] = right_fin[i]
             contra_fin[i] = left_fin[i]
@@ -470,7 +472,7 @@ def compute_vigor(tailsum, smoothing_window_size=3, std_dev_window_size=4):
     rolling_std.fillna(0, inplace=True) #smooth_time_series.mean()
     return rolling_std.values
 
-def compute_bout_dur(vigor, thresh=0.05, dt=dt_):
+def compute_bout_dur(vigor, thresh=0.05, dt=0.005):
     arr =vigor >= thresh
     first_index = np.argmax(arr)
     last_index = len(arr) - 1 - np.argmax(arr[::-1])
@@ -500,20 +502,6 @@ def time_of_first_peak(data, height_cutoff=0.25):
             tp_peak[id] = time[peaks[0]]
     return tp_peak
 
-def compute_leading_fin(l_fins, r_fins, height_cutoff=0.2):
-    leading_fin = np.full(l_fins.shape[0], -1) #0 = left, 1= right, 2= equal
-    
-    for bout in range(l_fins.shape[0]):
-        l_peaks, _ = find_peaks(l_fins[bout], height=height_cutoff)
-        r_peaks, _ = find_peaks(r_fins[bout], height=height_cutoff)
-        if (len(l_peaks) >0) & (len(r_peaks) >0):
-            if l_peaks[0] < r_peaks[0]: #left fin leads 
-                leading_fin[bout] = 0
-            elif l_peaks[0] > r_peaks[0]: #right fin leads 
-                leading_fin[bout] = 1
-            elif l_peaks[0] == r_peaks[0]: #equal fin leads
-                leading_fin[bout] = 2
-    return leading_fin
 
 def compute_corr_lag(traces1, traces2):
     corr = []

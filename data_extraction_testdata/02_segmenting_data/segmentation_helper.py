@@ -24,13 +24,6 @@ def get_motor_pos(df_dlc):
     return motor_x, motor_y, motor_z
 
 
-def get_eye_data(data):
-    left_eye_angle = data['eye_angles'][0]
-    right_eye_angle = data['eye_angles'][1]
-    eye_rot = data['rotation']
-    eye_vergence = data['vergence']
-    return left_eye_angle, right_eye_angle, eye_rot, eye_vergence
-
 def create_buffer_lists():
     cluster_n_vector =[]
     body_angles_delta= []

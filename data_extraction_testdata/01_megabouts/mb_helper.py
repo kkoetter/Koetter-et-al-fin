@@ -1,5 +1,5 @@
 import numpy as np
-
+from scipy.interpolate import interp1d
 
 def calculate_angles(body_vectors, midhead_vectors):
     """
