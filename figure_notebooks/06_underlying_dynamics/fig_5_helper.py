@@ -5,8 +5,7 @@ from sklearn.linear_model import RidgeCV
 from sklearn.metrics import r2_score, mean_squared_error
 
 
-catname = np.array(['AS', 'S1', 'S2', 'BS', 'JT', 'HAT', 'RT', 'SAT',
-        'LLC'])
+catname = np.array(['AS', 'S1', 'S2', 'BS', 'JT', 'HAT', 'RT', 'SAT', 'OB', 'LLC', 'SLC'])
 bout_cols =  ['#82cfff','#4589ff','#0000c8','#fcaf6d','#ffb3b8','#08bdba','#24a148','#9b82f3','#ee5396','#e3bc13','#fa4d56']
 
 def reshape_feature_array(feature_vector_array):
